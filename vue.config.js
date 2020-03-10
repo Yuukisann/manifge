@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: './',
+    publicPath: '/manifge/',
     outputDir: 'docs'
 }
