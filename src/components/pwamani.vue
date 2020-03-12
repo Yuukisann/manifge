@@ -102,10 +102,6 @@
         
     }
 
-    #name:active{
-
-    }
-
     #color{
         border: none;
     }
