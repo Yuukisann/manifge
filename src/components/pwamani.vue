@@ -48,17 +48,6 @@
     </div>
 </template>
 
-<script>
-    export default {
-        methods:{
-            make(){
-              const blob = new Blob()
-              console.log(blob) 
-            }
-        }
-    }
-</script>
-
 <style scoped>
     *{
         margin: 0;
