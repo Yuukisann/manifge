@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="wd">
-                <button v-on:click="make" id="btn">json作成</button>
+                <a v-on:click="make" id="btn" download="pwa.js">json作成</a>
             </div>
         </div>
     </div>
@@ -52,8 +52,9 @@
     export default {
         methods:{
             make(){
-              const blob = new Blob()
-              console.log(blob) 
+                const blob = new Blob();
+                const send = document.getElementById('btn');
+                send.href=URL.createObjectURL(blob)
             }
         }
     }
@@ -102,10 +103,6 @@
         
     }
 
-    #name:active{
-
-    }
-
     #color{
         border: none;
     }
@@ -115,29 +112,12 @@
         height: 30px;
         font-size: 13px;
         font-weight: bold;
+        padding-top: 10px;
         float: left;
         background: #3498db;
         color: white;
         border: none;
         cursor: pointer;
+        text-decoration: none;
     }
-
-    /* #name{
-        width: 50%;
-        height: 10px 15px;
-        font-size: 16px;
-        border-radius: 3px;
-        border: 2px solid #ddd;
-        box-sizing: border-box;
-    }
-
-    #name:focus{
-        border: 2px solid #ff9900;
-        z-index: 10;
-        outline: 0;
-    }
-
-    .common{
-        display: block;
-    } */
 </style>

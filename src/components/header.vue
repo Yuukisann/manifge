@@ -1,8 +1,14 @@
 <template>
     <div id="head">
-        <h1 id="text">manifest generator</h1>
-    </div>
+            <vue-typed-js :strings="['manifest.json Generator']" :loop="false" id="type">
+                <h1 class="typing"></h1>
+            </vue-typed-js>
+        </div>
 </template>
+
+<script>
+
+</script>
 
 <style scoped>
     *{
@@ -12,11 +18,18 @@
 
     #head{
         width: 100%;
-        height: 500px;
-        background:linear-gradient(to right ,rgb(128, 126, 255) 50%,rgb(69, 109, 194))
+        height: 100px;
+        background:linear-gradient(to right ,rgb(128, 126, 255) 50%,rgb(69, 109, 194));
+        padding-top: 50px;
+    }
+
+    #type{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #text{
-
+        text-align: center;
     }
 </style>
