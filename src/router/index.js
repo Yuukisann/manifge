@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import vueTypedjs from 'vue-typed-js'
 
 Vue.use(VueRouter)
+Vue.use(vueTypedjs)
 
 const routes = [
   {
