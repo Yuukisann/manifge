@@ -13,7 +13,9 @@
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
     "vue-typed-js": "^0.1.2",
-    "vuex": "^3.1.2"
+    "vuejs-datepicker": "^1.6.2",
+    "vuex": "^3.1.2",
+    "zlibjs": "^0.3.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
@@ -27,6 +29,8 @@
     "chai": "^4.1.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
+    "file-saver": "^2.0.2",
+    "jszip": "^3.2.2",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.6.11"

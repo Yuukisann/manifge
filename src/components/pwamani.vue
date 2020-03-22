@@ -42,22 +42,48 @@
                 </div>
             </div>
             <div class="wd">
-                <a v-on:click="make" id="btn" download="pwa.js">json作成</a>
+                <label for="icon" class="sizelab">icon</label>
+                <div>
+                    <input type="file" id="icon" class="common" placeholder="icon">
+                </div>
+            </div>
+            <div class="wd">
+                <a v-on:click="make" id="btn">json作成</a>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        methods:{
-            make(){
-                const blob = new Blob();
-                const send = document.getElementById('btn');
-                send.href=URL.createObjectURL(blob)
-            }
+import jszip from 'jszip'
+import filesaver from 'file-saver'
+export default {
+    methods:{
+        make(){
+            // let name = document.getElementById('name');
+            // let short = document.getElementById('short');
+            // let display = document.getElementById('display');
+            // let color = document.getElementById('color');
+            // let icon = document.getElementById('icon');
+
+            // let json1 = {
+            //     'name': name.value,
+            //     'short': short.value,
+            //     'display': display.value,
+            //     'color':color.value,
+            //     'icon': icon.value
+            // }
+
+            let zip = new jszip();
+            zip.file('manifest.json','hahaha');
+            zip.folder('img').file('manifest.js','guhehe')
+            zip.generateAsync({type:"blob"})
+            .then(function (blob) {
+                filesaver.saveAs(blob, "hello.zip");
+            });
         }
     }
+}
 </script>
 
 <style scoped>
@@ -93,7 +119,6 @@
         border-right: none;
         border-left: none;
         border-top: none;
-        border-radius: 5px;
         font-size: 17px;
     }
 
@@ -104,6 +129,10 @@
     }
 
     #color{
+        border: none;
+    }
+
+    #icon{
         border: none;
     }
 
