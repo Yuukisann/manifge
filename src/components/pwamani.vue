@@ -28,9 +28,9 @@
                 <label for="display" class="sizelab">display</label>
                 <div>
                     <select id="display" class="common">
-                        <option value="full">fullscreen</option>
-                        <option value="stand">standalone</option>
-                        <option value="mini">minimal-ui</option>
+                        <option value="fullscreen">fullscreen</option>
+                        <option value="standalone">standalone</option>
+                        <option value="minimal-ui">minimal-ui</option>
                         <option value="browser">browser</option>
                     </select>
                 </div>
@@ -60,22 +60,31 @@ import filesaver from 'file-saver'
 export default {
     methods:{
         make(){
-            // let name = document.getElementById('name');
-            // let short = document.getElementById('short');
-            // let display = document.getElementById('display');
-            // let color = document.getElementById('color');
-            // let icon = document.getElementById('icon');
+            let name = document.getElementById('name');
+            let short = document.getElementById('short');
+            let display = document.getElementById('display');
+            let color = document.getElementById('color');
+            let icon = document.getElementById('icon');
 
-            // let json1 = {
+            // let json1 = [{
             //     'name': name.value,
             //     'short': short.value,
             //     'display': display.value,
             //     'color':color.value,
             //     'icon': icon.value
-            // }
+            // }]
 
             let zip = new jszip();
-            zip.file('manifest.json','hahaha');
+            zip.file('manifest.json',
+`{
+"name": "${name.value}",
+"short": "${short.value}",
+"display": "${display.value}",
+"color": "${color.value}",
+"icon":"${icon.value}"
+}
+`
+            );
             zip.folder('img').file('manifest.js','guhehe')
             zip.generateAsync({type:"blob"})
             .then(function (blob) {
