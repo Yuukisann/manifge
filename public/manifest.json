@@ -1,0 +1,24 @@
+{
+    "name": "ppwa",
+    "short_name": "pwa",
+    "display": "standalone",
+    "color": "#82e770",
+    "start_url": "./index.html",
+    "icons":[
+        {
+            "src": "./imges/icons/icon_72x72.png",
+            "type":"image/png",
+            "size":"72x72"
+        },
+        {
+            "src": "./imges/icons/icon_192x192.png",
+            "type":"image/png",
+            "size":"192x192"
+        },
+        {
+            "src": "./imges/icons/icon_512x512.png",
+            "type":"image/png",
+            "size":"512x512"
+        }
+    ]
+}

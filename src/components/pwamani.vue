@@ -44,7 +44,7 @@
             <div class="wd">
                 <label for="icon" class="sizelab">icon</label>
                 <div>
-                    <input type="file" id="icon" class="common" placeholder="icon">
+                    <input type="file" id="icon" class="common" placeholder="icon" multiple>
                 </div>
             </div>
             <div class="wd">
@@ -56,43 +56,93 @@
 
 <script>
 import jszip from 'jszip'
-import filesaver from 'file-saver'
+import saveAs from 'file-saver'
+const jimp = require('jimp')
+
 export default {
+    data(){
+        return{
+            img: '',
+            data:''
+        }
+    },
     methods:{
         make(){
             let name = document.getElementById('name');
             let short = document.getElementById('short');
             let display = document.getElementById('display');
             let color = document.getElementById('color');
-            let icon = document.getElementById('icon');
-
-            // let json1 = [{
-            //     'name': name.value,
-            //     'short': short.value,
-            //     'display': display.value,
-            //     'color':color.value,
-            //     'icon': icon.value
-            // }]
+            let icon = document.getElementById('icon').files[0];
 
             let zip = new jszip();
-            zip.file('manifest.json',
+            const fil = new FileReader();
+            
+            fil.onload = (e) => {
+                this.img = e.target.result;
+
+                if(this.img.indexOf('data:image/png;base64,') !== -1){
+                    this.data = this.img.split('data:image/png;base64,').join('')
+                }else if(this.img.indexOf('data:image/jpeg;base64,') !== -1){
+                    this.data = this.img.split('data:image/jpeg;base64,').join('')
+                }
+
+                console.log(this.data)
+                const buff1 = Buffer.from(this.data,'base64')
+
+                jimp.read(buff1).then(icon1 => {
+                    icon1
+                    .resize(72,72)
+                    .getBuffer('image/png',function(err,src){
+                        zip.folder('imges').folder('icons').file('icon_72x72.png',src);
+                    })
+                    icon1
+                    .resize(192,192)
+                    .getBuffer('image/png',function(err,src){
+                        zip.folder('imges').folder('icons').file('icon_192x192.png',src)
+                    })
+                    icon1
+                    .resize(512,512)
+                    .getBuffer('image/png',function(err,src){
+                        zip.folder('imges').folder('icons').file('icon_512x512.png',src)
+                    })
+                    
+                    zip.file('manifest.json',
 `{
-"name": "${name.value}",
-"short": "${short.value}",
-"display": "${display.value}",
-"color": "${color.value}",
-"icon":"${icon.value}"
+    "name": "${name.value}",
+    "short_name": "${short.value}",
+    "display": "${display.value}",
+    "color": "${color.value}",
+    "icons":[
+        {
+            "src": "imges/icons/icon_72x72.png",
+            "type":"image/png",
+            "size":"72x72"
+        },
+        {
+            "src": "imges/icons/icon_192x192.png",
+            "type":"image/png",
+            "size":"192x192"
+        },
+        {
+            "src": "imges/icons/icon_512x512.png",
+            "type":"image/png",
+            "size":"512x512"
+        }
+    ]
 }
 `
-            );
-            zip.folder('img').file('manifest.js','guhehe')
-            zip.generateAsync({type:"blob"})
-            .then(function (blob) {
-                filesaver.saveAs(blob, "hello.zip");
-            });
+                );
+                zip.generateAsync({type:"blob"})
+                .then(function (blob) {
+                    saveAs(blob, "hello");
+                });
+
+                })
+            }
+            fil.readAsDataURL(icon)
         }
     }
-}
+}    
 </script>
 
 <style scoped>
