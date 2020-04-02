@@ -96,6 +96,11 @@ export default {
                         zip.folder('imges').folder('icons').file('icon_72x72.png',src);
                     })
                     icon1
+                    .resize(144,144)
+                    .getBuffer('image/png',function(err,src){
+                        zip.folder('imges').folder('icons').file('icon_144x144.png',src)
+                    })
+                    icon1
                     .resize(192,192)
                     .getBuffer('image/png',function(err,src){
                         zip.folder('imges').folder('icons').file('icon_192x192.png',src)
@@ -115,18 +120,23 @@ export default {
     "icons":[
         {
             "src": "imges/icons/icon_72x72.png",
-            "type":"image/png",
-            "size":"72x72"
+            "size": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "imges/icons/icon_144x144.png",
+            "size": "144x144",
+            "type": "image/png"
         },
         {
             "src": "imges/icons/icon_192x192.png",
-            "type":"image/png",
-            "size":"192x192"
+            "size":"192x192",
+            "type":"image/png"
         },
         {
             "src": "imges/icons/icon_512x512.png",
-            "type":"image/png",
-            "size":"512x512"
+            "size":"512x512",
+            "type":"image/png"
         }
     ]
 }
@@ -134,7 +144,7 @@ export default {
                 );
                 zip.generateAsync({type:"blob"})
                 .then(function (blob) {
-                    saveAs(blob, "hello");
+                    saveAs(blob, "manifest-pwa");
                 });
 
                 })
