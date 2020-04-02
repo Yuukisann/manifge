@@ -85,8 +85,7 @@ export default {
                 }else if(this.img.indexOf('data:image/jpeg;base64,') !== -1){
                     this.data = this.img.split('data:image/jpeg;base64,').join('')
                 }
-
-                console.log(this.data)
+                
                 const buff1 = Buffer.from(this.data,'base64')
 
                 jimp.read(buff1).then(icon1 => {
