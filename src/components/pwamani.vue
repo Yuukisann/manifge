@@ -134,6 +134,7 @@ export default {
     "background_color": "${bgcolor.value}",
     "theme_color":"${theme.value}",
     "icons":[
+        
         {
             "src": "./imges/icons/icon_72x72.png",
             "size": "72x72",
