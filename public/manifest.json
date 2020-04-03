@@ -1,7 +1,7 @@
 {
     "name": "pwa test",
     "short_name": "testdeath",
-    "display": "standalone",
+    "display": "browser",
     "start_url": "./index.html",
     "background_color": "#96f861",
     "theme_color":"#607bfb",
