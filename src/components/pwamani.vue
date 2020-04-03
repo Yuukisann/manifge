@@ -42,11 +42,24 @@
                 </div>
             </div>
             <div class="wd">
+                <label for="theme" class="sizelab">theme_color</label>
+                <div>
+                    <input type="color" id="theme" class="common" placeholder="theme_color">
+                </div>
+            </div>
+            <div class="wd">
+                <label for="start" class="sizelab">start_url</label>
+                <div>
+                    <input type="text" id="starturl" class="common" placeholder="start_url">
+                </div>
+            </div>
+            <div class="wd">
                 <label for="icon" class="sizelab">icon</label>
                 <div>
                     <input type="file" id="icon" class="common" placeholder="icon" multiple>
                 </div>
             </div>
+            
             <div class="wd">
                 <a v-on:click="make" id="btn">json作成</a>
             </div>
@@ -71,7 +84,9 @@ export default {
             let name = document.getElementById('name');
             let short = document.getElementById('short');
             let display = document.getElementById('display');
-            let color = document.getElementById('color');
+            let bgcolor = document.getElementById('color');
+            let theme = document.getElementById('theme')
+            let start_url = document.getElementById('starturl');
             let icon = document.getElementById('icon').files[0];
 
             let zip = new jszip();
@@ -116,25 +131,27 @@ export default {
     "name": "${name.value}",
     "short_name": "${short.value}",
     "display": "${display.value}",
-    "color": "${color.value}",
+    "start_url": "${start_url.value}",
+    "background_color": "${bgcolor.value}",
+    "theme_color":"${theme.value}"
     "icons":[
         {
-            "src": "imges/icons/icon_72x72.png",
+            "src": "./imges/icons/icon_72x72.png",
             "size": "72x72",
             "type": "image/png"
         },
         {
-            "src": "imges/icons/icon_144x144.png",
+            "src": "./imges/icons/icon_144x144.png",
             "size": "144x144",
             "type": "image/png"
         },
         {
-            "src": "imges/icons/icon_192x192.png",
+            "src": "./imges/icons/icon_192x192.png",
             "size":"192x192",
             "type":"image/png"
         },
         {
-            "src": "imges/icons/icon_512x512.png",
+            "src": "./imges/icons/icon_512x512.png",
             "size":"512x512",
             "type":"image/png"
         }
@@ -198,6 +215,10 @@ export default {
     }
 
     #color{
+        border: none;
+    }
+
+    #theme{
         border: none;
     }
 

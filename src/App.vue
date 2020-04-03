@@ -4,7 +4,6 @@
       <headtop></headtop>
       <ul id="tabMenu">
         <li v-on:click="change(1)">PWA マニフェスト</li>
-        <li v-on:click="change(2)">chrome マニフェスト</li>
       </ul>
       <pwamani v-if="active === 1"></pwamani>
       <extension v-if="active === 2"></extension>
