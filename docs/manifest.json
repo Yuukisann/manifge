@@ -1,9 +1,10 @@
 {
-    "name": "pwaa",
-    "short_name": "shopwa",
+    "name": "pwa test",
+    "short_name": "testdeath",
     "display": "standalone",
-    "color": "#25f814",
     "start_url": "./index.html",
+    "background_color": "#96f861",
+    "theme_color":"#607bfb",
     "icons":[
         {
             "src": "./imges/icons/icon_72x72.png",
