@@ -132,7 +132,7 @@ export default {
     "display": "${display.value}",
     "start_url": "${start_url.value}",
     "background_color": "${bgcolor.value}",
-    "theme_color":"${theme.value}"
+    "theme_color":"${theme.value}",
     "icons":[
         {
             "src": "./imges/icons/icon_72x72.png",
