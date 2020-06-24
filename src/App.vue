@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <warn></warn>
       <headtop></headtop>
       <ul id="tabMenu">
         <li v-on:click="change(1)">PWA マニフェスト</li>
@@ -16,12 +17,14 @@
 import headtop from '../src/components/header'
 import pwamani from '../src/components/pwamani'
 import extension from '../src/components/Extension'
+import warn from '../src/components/warn'
 
 export default {
   components:{
     headtop,
     pwamani,
-    extension
+    extension,
+    warn
   },
   data(){
         return{
