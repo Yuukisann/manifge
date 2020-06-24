@@ -1,16 +1,5 @@
 <template>
     <div id="range">
-        <!-- <label for="name">name</label>
-        <input type="text" id="name" class="common" placeholder="name">
-        <label for="short">short_name</label>
-        <input type="text" id="short" class="common" placeholder="short_name">
-        <select id="display" class="common">
-            <option value="full">fullscreen</option>
-            <option value="stand">standalone</option>
-            <option value="mini">minimal-ui</option>
-            <option value="browser">browser</option>
-        </select> -->
-
         <div>
             <div class="wd">
                 <label for="name" class="sizelab">name</label>
