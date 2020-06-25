@@ -1,7 +1,7 @@
 {
     "name": "manifest-maker",
     "short_name": "mf-maker",
-    "display": "minimal-ui",
+    "display": "standalone",
     "start_url": "./index.html",
     "background_color": "#96f861",
     "theme_color":"#607bfb",

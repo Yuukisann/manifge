@@ -2,7 +2,6 @@
     <div id="app">
         <div id="warn">
             <p>このアプリで作成した画像がデベロッパーツールのapplicationのmanifestでエラーが発生するかもしれません。<span v-on:click="del" id="del">x</span> </p>
-            
         </div>
     </div>
 </template>
@@ -38,5 +37,11 @@ export default {
         height: 20px;
         margin-left: 30px;
         border: 1px solid black;
+    }
+
+    @media screen and (max-width: 480px) {
+        #warn {
+            padding-top: 20px;
+        }
     }
 </style>
